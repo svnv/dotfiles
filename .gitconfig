@@ -1,0 +1,42 @@
+[core]
+	excludesfile = /Users/sven/.gitignore_global
+[user]
+	name = Sven Viig
+	email = sven.viig@gmail.com
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+	showbranch = auto
+	ui = true
+
+[log]
+	date = relative
+
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+        graph = log --graph --oneline --decorate=short --branches='*'
+	b = branch --sort=-committerdate
+	l = log --pretty='%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s'
+	what = log --pretty="%s" origin/master...origin/develop --no-merges --invert-grep --grep='^v?[0-9]\\.[0-9]+\\.[0-9]+$' --extended-regexp
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+[flake8]
+	strict = true
+[pager]
+	diff = diff-so-fancy | less --tabs=1,5 -RFX
+	show = diff-so-fancy | less --tabs=1,5 -RFX

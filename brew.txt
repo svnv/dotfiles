@@ -1,0 +1,12 @@
+bash-completion
+bat
+diff-so-fancy
+fzf
+git
+openttd
+prettyping
+nnn
+shellcheck
+the_silver_searcher
+tig
+tree
